@@ -1,0 +1,30 @@
+<div class="row d-flex justify-content-center bg-dark align-items-center mt-5 mb-5 p-5" id="newsletter"><!-- ici la newsletter du site -->
+    <div class="col-md-10 col-12">
+        <div class="card">
+            <div class="text-center">
+
+                <img class="p-4" src="img/newsletter.png" width="200">
+                <span class="d-block m-3">Rejoignez notre newsletter pour être informé des produits en avant première et bénéficier d'avantages !</span>
+
+                
+                <form class="mx-5" action="index.php" method="post">
+                    <div class="input-group mb-3 mt-4">
+                        <input type="text" class="form-control" name="emailFormControl" placeholder="Votre E-mail" required>
+                    </div>
+                    <div class="input-group d-flex justify-content-center mb-3 mt-4">
+                        <button class="btn btn-success border-rad" type="submit" id="button-addon2" name="souscriptionBtn">Souscrire</button>
+                    </div>
+                    <div class="mt-5" id="messageNewsletter">
+                    <?php
+                    if (isset($_POST['souscriptionBtn']))
+                    {
+                        include 'addNewsletter.php';
+                        echo "<div style='text-decoration: underline; margin-bottom : 3%'>". $message . "</div>";
+                    }
+                    ?>
+                    </div>
+                </form>
+            </div>
+        </div> 
+    </div>   
+</div>

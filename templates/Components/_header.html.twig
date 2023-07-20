@@ -1,0 +1,125 @@
+<!-- Header -->
+<div class="row sticky-top pb-3" id="header">
+  <!-- icons on the left -->
+  <nav class="navbar headerColor">
+    <div class="col-3 text-center">
+      <a class="iconesBrandBig navbar-brand" href="https://www.instagram.com/unesudiste_off/">
+        <i class="fa-brands fa-instagram text-white text-center" alt="Instagram NDG" width="25" height="25"></i>
+      </a>
+      <a href="tel:+33766332818" target="_blank" class="iconesBrandBig navbar-brand">
+        <i class="fa-solid fa-phone text-white text-center" alt="Service Client NDG" width="25" height="25"></i>
+      </a>
+      <a class="iconesBrandBig navbar-brand" href="#">
+        <i class="fa-brands fa-facebook text-white text-center" alt="Facebook NDG" width="25" height="25"></i>
+      </a>
+    </div>
+    <div class="col-auto pt-4 pb-5">
+      <img class="" src="img/ndgBlanc.png" alt="Natural Deluxe Gourmet - Logo - Blanc" width="60">
+    </div>
+    <div class="col-3 text-center">
+      <a class="iconesBrandBig navbar-brand" href="{{ path('cart') }}" role="button">
+      <i class="fa-solid fa-cart-shopping text-white text-center" alt="Mon Panier" width="25" height="25"></i>
+      </a>
+      <a class="iconesBrandBig navbar-brand" href="{{ path('login') }}">
+        <i class="fa-solid fa-user text-white text-center" alt="Se connecter" width="25" height="25"></i>
+      </a>
+    </div>
+  </nav>
+  <!-- icons on the left -->
+
+
+  <!-- menu large device -->
+  <div class="barMenu">
+    <div class="container sticky-top position-absolute top-50 mt-5">
+      <nav class="navbar-expand-lg navbar-light bg-white border border-dark border-5 rounded-3">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="menuPrincipal">
+            <ul class="navbar-nav mx-auto mt-2 mb-2">
+              <li class="contentMenu nav-item">
+                <a class="nav-link-NDG active" aria-current="home" href="{{ path('home') }}">Accueil</a>
+              </li>
+              <li class="contentMenu nav-item">
+                <a class="nav-link-NDG" href="{{ path('shop') }}">Notre boutique</a>
+              </li>
+              <li class="contentMenu nav-item">
+                <a class="nav-link-NDG" href="{{ path('about') }}">Notre histoire</a>
+              </li>
+              <li class="contentMenu nav-item">
+                <a class="nav-link-NDG" href="{{ path('program') }}">Nos programmes de fidélité</a>
+              </li>
+              <li class="contentMenu nav-item">
+                <a class="nav-link-NDG" href="{{ path('faq') }}">F.A.Q.</a>
+              </li>
+              <li class="contentMenu nav-item">
+                <a class="nav-link-NDG" href="{{ path('contact') }}">Nous contacter</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- menu large device -->
+
+  <!-- menu small device -->
+  <div class="burgerMenu position-absolute">
+    <button class="shadow-none btn p-0 " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenuPrincipal" role="button" aria-controls="offcanvasMenuPrincipal">
+      <i class="fas fa-bars fs-3 burgerStyle" role="button"></i>
+    </button>
+  </div>
+    
+  <!-- Sidebar Content Start -->
+  <div class="offcanvas offcanvas-start w-75" tabindex="-1" id="offcanvasMenuPrincipal" aria-labelledby="offcanvasMenuPrincipalLabel">
+    <div class="offcanvas-header">
+      <div class="col-auto pt-4 pb-1 mx-auto">
+        <img class="" src="img/ndgNoir.png" alt="Natural Deluxe Gourmet - Logo - Blanc" width="60">
+      </div>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" id="dismissMenuBtn" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="navbar-nav w-100">     
+        <ul class="navbar-nav mx-auto mt-2 mb-2">
+          <li class="contentMenu nav-item">
+            <a class="nav-link-NDG active" aria-current="home" href="{{ path('home') }}">Accueil</a>
+          </li>
+          <li class="contentMenu nav-item">
+            <a class="nav-link-NDG" href="{{ path('shop') }}">Notre boutique</a>
+          </li>
+          <li class="contentMenu nav-item">
+            <a class="nav-link-NDG" href="{{ path('about') }}">Notre histoire</a>
+          </li>
+          <li class="contentMenu nav-item">
+            <a class="nav-link-NDG" href="{{ path('program') }}">Nos programmes de fidélité</a>
+          </li>
+          <li class="contentMenu nav-item">
+            <a class="nav-link-NDG" href="{{ path('faq') }}">F.A.Q.</a>
+          </li>
+          <li class="contentMenu nav-item">
+            <a class="nav-link-NDG" href="{{ path('contact') }}">Nous contacter</a>
+          </li>
+        </ul>      
+        <hr>
+        <button type="button" class="btn-dark-NDG py-3" href="{{ path('login') }}">Se connecter</button>              
+        <hr>
+        <div class="row pb-5 mb-5"><!-- Social Media -->
+          <li class="text-center">
+            <a class="navbar-brand" href="https://www.instagram.com/unesudiste_off/">
+              <i class="fa-brands fa-instagram text-dark text-center" alt="Instagram NDG" width="25" height="25"></i>
+            </a>
+            <a href="tel:+33766332818" target="_blank" class="navbar-brand">
+              <i class="fa-solid fa-phone text-dark text-center" alt="Service Client NDG" width="25" height="25"></i>
+            </a>
+            <a class="navbar-brand" href="#">
+              <i class="fa-brands fa-facebook text-dark text-center" alt="Facebook NDG" width="25" height="25"></i>
+            </a>
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Sidebar Content End -->
+
+  <!-- menu small device -->
+
+
+</div>

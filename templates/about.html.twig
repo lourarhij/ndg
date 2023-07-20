@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NDG - Notre histoire{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    {% include 'Components/about/_picSection.html.twig' %}
+    {% include 'Components/about/_funFact.html.twig' %}
+    {% include 'Components/about/_experienceNDG.html.twig' %}
+    {% include 'Components/home/_team.html.twig' %}
+    {% include 'Components/home/_testimonials.html.twig' %}
+    {% include 'Components/home/_newsletter.html.twig' %}
+</div>
+{% endblock %}

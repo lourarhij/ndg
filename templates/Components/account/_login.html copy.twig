@@ -1,0 +1,107 @@
+<div class="container-fluid p-5">
+	<div class="container p-5">
+        <div class="accordion accordion-borderless" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed p-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Se connecter<i class="fa-solid fa-right-to-bracket fa-fade ms-5"></i>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+
+                        <div  style="max-width : 100%"><!-- ici le formulaire de connexion-->
+                            <p>Remplissez les champs suivants</p>
+                            <form id="loginForm needs-validation" action="login.php" method="post">
+                                <div class="mb-3 form-floating">
+                                    <input type="email" class="form-control is-invalid" id="email" required>
+                                    <label for="email" class="form-label">Adresse e-mail</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input type="password" class="form-control is-invalid" id="password" required>
+                                    <label for="password" class="form-label">Mot de passe</label>
+                                </div>
+                                <button type="submit" class="btn btn-success">Se connecter</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header " id="headingTwo">
+                <button class="accordion-button collapsed p-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    S'inscrire
+                </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+
+                        <div  style="max-width : 100%"><!-- ici le formulaire de connexion-->
+                            <p>Remplissez les champs suivants</p>
+                            <form id="registerForm needs-validation" action="registration.php" method="post">
+                                <div class="mb-3 form-floating">
+                                    <input type="text" class="form-control is-invalid" id="registerLastName" required>
+                                    <label class="text-dark" for="registerLastName">Nom</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input type="text" class="form-control is-invalid" id="registerFirstName" required>
+                                    <label class="text-dark" for="registerFirstName">Prénom</label>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="me-2">Civilité :</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="civilityM" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">M</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="civilityMme" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Mme</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="civilityMlle" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Mlle</label>
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input type="tel" class="form-control is-invalid" id="registerPhone" required>
+                                    <label class="text-dark" for="registerPhone">Téléphone</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input type="email" class="form-control is-invalid" id="registerEmail" required>
+                                    <label class="text-dark" for="registerEmail">E-mail</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input type="password" class="form-control is-invalid" id="registerPassword" required>
+                                    <label class="text-dark" for="registerPassword">Mot de passe</label>
+                                </div>
+                                <div class="mb-3">
+                                <label class="me-2">Newsletter :</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="newsletterYes" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Oui</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="newsletterNo" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Non</label>
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <div id="registerCaptcha"></div>
+                                </div>
+                                <button type="submit" class="btn btn-success">S'inscrire</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        
+
+		</div>
+	</div>
+</div>
+
+
+

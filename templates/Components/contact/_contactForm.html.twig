@@ -1,0 +1,71 @@
+<div class="container mt-5">
+
+        <h2 class="text-center">Nous contacter</h2>
+        <div class="row text-center align-item-center mt-5 mx-5">
+          <div class="col-12 col-md-4">
+            <i class="fas fa-map-marker-alt fa-2x m-2"></i>
+            <p>San Francisco, CA 94126, USA</p>  
+          </div>
+          <div class="col-12 col-md-4">
+            <i class="fas fa-phone fa-2x m-2"></i>
+            <p><a href="tel:+33766332818" target="_blank" class="text-reset">+33 7 66 33 28 18</a></p>      
+          </div>
+          <div class="col-12 col-md-4">
+            <i class="fas fa-envelope fa-2x m-2"></i>
+            <p><a href="mailto:janaal06@hotmail.com" target="_blank" class="text-reset">janaal06@hotmail.com</a></p>   
+          </div>
+        </div>
+        <div class="container border border-1 shadow p-5 mt-5 mx-auto mb-5" id="formulaireDeContact"><!-- ici le formulaire de contact-->
+          <form class="row g-3" action="contact.php" method="post">
+            <div class="col-md-6">
+              <label class="form-label">Prénom / First name *</label>
+              <input type="text" class="form-control" name="firstNameFormControl" placeholder="Mark" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Nom / Last name *</label>
+              <input type="text" class="form-control" name="lastNameFormControl" placeholder="Otto" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">E-mail *</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="emailContactFormControl" placeholder="name@example.com" aria-label="Username" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Téléphone / Phone *</label>
+              <input type="text" class="form-control" name="phoneFormControl" placeholder="XX XX XX XX XX" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Sujet *</label>
+              <input type="text" class="form-control" name="subjectFormControl" required></input>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Message *</label>
+              <textarea class="form-control" name="messageFormControl" rows="3" required></textarea>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                  J'accepte les termes et conditions / Agree to the terms and conditions*
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="py-1 px-5 btn-dark-NDG" type="submit" name="buttonFormSubmit">Envoyer</button>
+            </div>
+            
+          </form>
+        </div>
+
+        <?php
+          if (isset($_POST['buttonFormSubmit'])) {
+            include 'send-email.php';
+            echo "<div class='container bg-success border border-1 shadow p-5 mt-5 mx-auto mb-5' id='formulaireDeContactMessage'>
+                    <div class='col-md-6'>";
+            echo "<div style='margin-bottom : 3%'>". $messageFormulaire . "</div>";
+            echo "</div></div>";
+          }
+        ?>
+
+      </div>

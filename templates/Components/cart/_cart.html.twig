@@ -1,0 +1,65 @@
+<section style="background-color: #eee;">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+
+        <div class="row mb-4">
+            <div class="col-8">
+                <h3>Votre panier</h3>
+            </div>
+            <div class="col-4 text-end">
+                <div>
+                    <a href="{{ path('shop') }}" class="text-body">Retourner à la boutique <i class="fas fa-angle-right mt-1"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8">
+            <div class="card rounded-3 mb-4" >
+                <div class="card-body p-4">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-5 col-md-4 col-lg-2 my-2">
+                            <img src="img/boeuf-chorizo.jpg" class="img-fluid rounded-3" alt="Chorizo de Boeuf">
+                        </div>
+                        <div class="col-7 col-md-3 col-lg-4 my-2">
+                            <h5>Chorizo de Boeuf</h5>
+                        </div>
+                        <div class="col-4 col-md-3 col-lg-2 my-2">
+                            <p>25.99 €</p>
+                        </div>
+                        <div class="col-6 col-md-9 col-lg-3 d-flex my-2">
+                            <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input id="form1" min="0" name="quantity" value="2" type="number" class="form-control form-control-sm" />
+                            <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="col-2 col-md-3 col-lg-1 text-center my-2">
+                            <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="col col-md-4">
+            <div class="card mb-4">
+                <div class="card-body p-4 row d-flex">
+                    <div class="col col-lg-7">
+                        <div class="form-outline flex-fill">
+                            <input type="text" id="form1" class="form-control form-control-lg" />
+                            <label class="form-label" for="form1">Code avantage</label>
+                        </div>
+                    </div>
+                    <div class="col col-lg-3">
+                        <button type="button" class="btn btn-outline-warning">Appliquer</button>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path('payment') }}" class="btn btn-warning btn-block btn-lg justify-content-center">Procéder au paiement<i class="fa-regular fa-credit-card fa-bounce ms-3"></i></a>
+        </div>
+
+    </div>
+  </div>
+</section>

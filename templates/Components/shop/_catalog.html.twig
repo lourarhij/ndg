@@ -1,0 +1,151 @@
+<div class="container-fluid bg-light p-5 mb-5" id="catalogueProduits">
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="sidebar border-end">
+          <h4>Nos catégories</h4>
+          <div class="container my-4">
+
+
+            {% for filter in filters %} {# pour tous les filtres #}
+              <div class="form-check">
+                <input class="form-check-input parentCase" id="filter-{{ filter.idCategory }}" type="checkbox" onclick="showSubFilters()" value="{{ filter.idCategory }}">
+                <label class="form-check-label" for="filter-{{ filter.name }}">
+                  {{ filter.name }}
+                </label>
+              </div>
+            {% endfor %}
+            
+          </div>
+
+          <div id="sub-filters" class="my-4">
+            <h5>Nos sous-catégories</h5>
+
+            {% for filter in filters %}  {# pour tous les filtres #}
+              <div class="subFilterStyle" id="filterParent-{{ filter.idCategory }}"> {# on crée une div par parent, pour contenir ses enfants, il est caché de base (css) #}
+                {% for subfilter in filter.childCategory %}  {# pour tous les sous-filtres du filtre parent #}
+                  <div class="form-check">
+                    <input class="form-check-input subfilters-{{ subfilter.idParent}}" id="filter-{{ subfilter.idCategory }}" type="checkbox" value="{{ subfilter.idCategory }}">
+                    <label class="form-check-label" for="filter-{{ subfilter.name }}">
+                      {{ subfilter.name }}
+                    </label>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+            
+          </div>
+          <button id="apply-filters" class="px-4 btn-dark-NDG">Appliquer</button>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="catalog">
+          <h2>Nos produits</h2>
+          <div id="products" class="row">
+            <div class="col-lg-4 col-md-12 mb-4">
+
+              {#{% for product in products %}  {# pour tous les produits #}
+               {# <div class="productStyle" id="productParent-{{ product.idCategory }}"> {# on crée une div par parent, pour contenir ses enfants, il est caché de base (css) #}
+                  {#{% for subproduct in subproduct.childCategory %}  {# pour tous les sous-produits du filtre parent #}
+                    
+
+
+              {# Affichage des produits associés aux filtres sélectionnés #}
+             {# {% for product in products %} #}
+                  {# <div class="card cardProduct">
+                      <img src="{{ product.image }}">
+                      <div class="card-body">
+                          <h5 class="card-title text-center">{{ product.name }}</h5>
+                          <p class="card-text text-center">{{ product.price }}</p>
+                          <div class="row d-flex justify-content-center">
+                              <div class="col-4 d-flex justify-content-center">
+                                  <button class="py-2 px-4 btn-dark-NDG">
+                                      <i class="fa-solid fa-cart-shopping text-center" width="25" height="25"></i>
+                                  </button>
+                              </div>
+                              <div class="col-4 d-flex justify-content-center">
+                                  <button href="" class="py-2 px-4 btn-green-NDG">Voir</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div> #}
+              {# {% endfor %} #}
+
+
+                    {# <div class="card cardProduct">
+                      <img src="img/boeuf-chorizo.jpg">
+                      <div class="card-body">
+                        <h5 class="card-title text-center">Card title</h5>
+                        <p class="card-text text-center">Price</p>
+                        <div class="row d-flex justify-content-center">
+                          <div class="col-4 d-flex justify-content-center">
+                            <button class="py-2 px-4 btn-dark-NDG">
+                              <i class="fa-solid fa-cart-shopping text-center" width="25" height="25"></i>
+                            </button>
+                          </div>
+                          <div class="col-4 d-flex justify-content-center">
+                            <button href="" class="py-2 px-4 btn-green-NDG">Voir</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div> #}
+
+
+
+                    
+                 {# {% endfor %}
+                </div>
+              {% endfor %}
+
+            {# {% for product in products %}  {# pour tous les produits #}
+              {#<div class="productStyle" id="filterParent-{{ filter.idCategory }}"> {# on crée une div par parent, pour contenir ses enfants, il est caché de base (css) #}
+                {#{% for subfilter in filter.childCategory %}  {# pour tous les sous-filtres du filtre parent #}
+                {#  <div class="form-check">
+                {#    <input class="form-check-input subfilters-{{ subfilter.idParent}}" id="filter-{{ subfilter.idCategory }}" type="checkbox" value="{{ subfilter.idCategory }}">
+                {#    <label class="form-check-label" for="filter-{{ subfilter.name }}">
+                {#      {{ subfilter.name }}
+                {#    </label>
+                {#  </div>
+               {# {% endfor %}
+             {# </div>
+            {#{% endfor %} #}
+
+
+
+            <!-- Les produits correspondants aux filtres seront ajoutés ici -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lien vers le fichier JavaScript Bootstrap -->
+  <script>
+
+    function showSubFilters(){
+      var checkedBoxParent = document.querySelectorAll('input.parentCase:checked'); // on recupere les cases cochées niveau parent
+      document.querySelectorAll(".subFilterStyle").forEach(function(elt) { // on fait une fonction qui permet de cacher tous les groupes de sous-filtres
+        elt.style.display="none";
+      });
+      checkedBoxParent.forEach(function(checkedBox) { // on fait une fonction qui permet d'afficher les groupes de sous-filtres associées aux cases parents cochées en récupérant l'id parent et en vérifiant s'il matche avec ceux enfants
+        var idParent = checkedBox.value;
+        document.getElementById('filterParent-' + idParent).style.display="block";
+      });
+    }
+
+
+
+
+
+    document.getElementById('apply-filters').addEventListener('click', function() {
+    // Code pour appliquer les filtres et récupérer les produits correspondants depuis la base de données
+
+      // Récupérer les filtres sélectionnés par l'utilisateur
+        const selectedFilters = Array.from(document.querySelectorAll('input[name="selectedFilters[]"]:checked')).map(input => input.value);
+
+        // Envoyer une requête au serveur pour récupérer les produits associés aux filtres sélectionnés et mettre à jour la liste des produits affichés
+        // Ici, vous pouvez utiliser AJAX ou un autre moyen de communication avec le serveur pour effectuer la requête et mettre à jour les produits affichés.
+    });
+    </script>
+
+</div>

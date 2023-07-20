@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NDG - Accueil{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    {% include 'Components/home/_bannerCarousel.html.twig' %}
+    
+    <div class="container mt-5 mx-auto" id="premierTexteDescriptif"><!-- ici le premier texte du site -->
+        <p class="text-center">
+          Chez NDG, nous sommes fiers de vous offrir bien plus qu'une simple expérience d'achat. 
+          Nous vous invitons à plonger dans un monde de prestations gastronomiques d'exception, où 
+          la qualité et le raffinement sont au cœur de tout ce que nous faisons.
+          <br><br>
+          Que vous soyez un amateur de gastronomie, un fin connaisseur ou simplement à la recherche 
+          de cadeaux gourmands uniques, nos prestations sont conçues pour éveiller vos sens et vous 
+          offrir une expérience inoubliable. Nous croyons en l'importance de préserver les traditions 
+          culinaires, tout en apportant une touche de modernité à nos prestations pour répondre aux 
+          attentes des palais les plus exigeants.
+        </p>
+    </div>
+
+    {% include 'Components/home/_fourImages.html.twig' %}
+    {% include 'Components/home/_articleText.html.twig' %}
+    {% include 'Components/home/_team.html.twig' %}
+    {% include 'Components/home/_partners.html.twig' %}
+    {% include 'Components/home/_testimonials.html.twig' %}
+    {% include 'Components/home/_newsletter.html.twig' %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+            <div class="cardLogin p-5">
+                <ul class="nav nav-pills nav-justified mb-5" id="pillsTabLoginOrRegister" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active btn-success" id="pillsLoginTab" data-bs-toggle="pill" data-bs-target="#pillsLogin" type="button" role="tab" aria-controls="pillsLogin" aria-selected="true">Se connecter</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link btn-success" id="pillsRegisterTab" data-bs-toggle="pill" data-bs-target="#pillsRegister" type="button" role="tab" aria-controls="pillsRegister" aria-selected="false">S'inscrire</button>
+                    </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+
+                        <div class="tab-pane fade show active" id="pillsLogin" role="tabpanel" aria-labelledby="pillsLoginTab" tabindex="0">
+                            <form id="loginForm needs-validation" action="login.php" method="post">
+                                <div class="mb-4 form-floating">
+                                    <input type="email" class="form-control" id="email" required>
+                                    <label for="email" class="form-label">Adresse e-mail</label>
+                                </div>
+                                <div class="mb-4 form-floating">
+                                    <input type="password" class="form-control" id="password" required>
+                                    <label for="password" class="form-label">Mot de passe</label>
+                                </div>
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-success btn-block mb-4">Se connecter</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="pillsRegister" role="tabpanel" aria-labelledby="pillsRegisterTab" tabindex="0">
+                            <form id="registerForm needs-validation" action="register.php" method="post">
+
+                                <div class="mb-4 form-floating">
+                                    <input type="text" class="form-control " id="registerLastName" required>
+                                    <label class="text-dark" for="registerLastName">Nom</label>
+                                </div>
+                                <div class="mb-4 form-floating">
+                                    <input type="text" class="form-control " id="registerFirstName" required>
+                                    <label class="text-dark" for="registerFirstName">Prénom</label>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="me-2">Civilité :</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="civilityM" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">M</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="civilityMme" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Mme</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="civilityMlle" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Mlle</label>
+                                    </div>
+                                </div>
+                                <div class="mb-4 form-floating">
+                                    <input type="tel" class="form-control " id="registerPhone" required>
+                                    <label class="text-dark" for="registerPhone">Téléphone</label>
+                                </div>
+                                <div class="mb-4 form-floating">
+                                    <input type="email" class="form-control " id="registerEmail" required>
+                                    <label class="text-dark" for="registerEmail">E-mail</label>
+                                </div>
+                                <div class="mb-4 form-floating">
+                                    <input type="password" class="form-control " id="registerPassword" required>
+                                    <label class="text-dark" for="registerPassword">Mot de passe</label>
+                                </div>
+                                <div class="mb-4">
+                                <label class="me-2">Newsletter :</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="newsletterYes" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Oui</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="newsletterNo" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Non</label>
+                                    </div>
+                                </div>
+                                <div class="mb-4 form-floating">
+                                    <div id="registerCaptcha"></div>
+                                </div>
+                                <button type="submit" class="btn btn-success">S'inscrire</button>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+
+            </div>
+
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>
+
+

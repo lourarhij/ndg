@@ -1,0 +1,106 @@
+<div class="container-fluid bg-light p-5 mb-5" id="catalogueProduits">
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="sidebar border-end">
+          <h4>Nos catégories</h4>
+          <div class="container my-4">
+          {% for category in category %}
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="charcuterie" id="filter-charcuterie">
+              <label class="form-check-label" for="filter-charcuterie">
+                Charcuterie
+              </label>
+            </div>
+          {% endfor %}
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="epicerie" id="filter-epicerie">
+              <label class="form-check-label" for="filter-epicerie">
+                Épicerie
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="epicerie" id="filter-accessoires">
+              <label class="form-check-label" for="filter-accessoires">
+                Accessoires
+              </label>
+            </div>
+          </div>
+          <div id="sub-filters" style="display: none;" class="my-4">
+            <h5>Nos variétés</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="black-angus" id="filter-black-angus">
+              <label class="form-check-label" for="filter-black-angus">
+                Black Angus
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="boeuf" id="filter-boeuf">
+              <label class="form-check-label" for="filter-boeuf">
+                Boeuf
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="wagyu" id="filter-wagyu">
+              <label class="form-check-label" for="filter-wagyu">
+                Wagyu
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="blonde-de-galice" id="filter-blonde-de-galice">
+              <label class="form-check-label" for="filter-blonde-de-galice">
+                Blonde De Galice
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="agneau" id="filter-agneau">
+              <label class="form-check-label" for="filter-agneau">
+                Agneau
+              </label>
+            </div>
+          </div>
+          <button id="apply-filters" class="px-4 btn-dark-NDG">Appliquer</button>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="catalog">
+          <h2>Nos produits</h2>
+          <div id="products">
+            <!-- Les produits correspondants aux filtres seront ajoutés ici -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lien vers le fichier JavaScript Bootstrap -->
+  <script>
+    document.getElementById('filter-charcuterie').addEventListener('change', function() {
+      var subFilters = document.getElementById('sub-filters');
+      if (this.checked) {
+          subFilters.style.display = 'block';
+      } else {
+          subFilters.style.display = 'none';
+      }
+      });
+    document.getElementById('apply-filters').addEventListener('click', function() {
+    // Code pour appliquer les filtres et récupérer les produits correspondants depuis la base de données
+
+      // Exemple de code pour ajouter des produits au catalogue (à remplacer avec les données réelles de la base de données)
+      var productsContainer = document.getElementById('products');
+      productsContainer.innerHTML = '';
+
+      // Exemple de produit
+      var product = document.createElement('div');
+      product.classList.add('product');
+      var productName = document.createElement('h4');
+      productName.textContent = 'Nom du produit';
+      product.appendChild(productName);
+      // Ajouter d'autres éléments du produit (image, prix, etc.)
+
+      // Ajouter le produit au catalogue
+      productsContainer.appendChild(product);
+      });
+    </script>
+
+</div>
