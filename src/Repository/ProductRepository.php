@@ -44,47 +44,50 @@ class ProductRepository extends ServiceEntityRepository
     /**
      * @return Product[] Returns an array of Product objects
      */
-    public function findByCategory($category = null): array
+    public function findByCategory(array $categories)
     {
-        if ($category === null || $category === "") {
+        // Si aucune catégorie sélectionnée, renvoyer tous les produits
+        if (empty($categories)) {
             return $this->createQueryBuilder('product')
-                ->where('product.category IS NULL') // On suppose que NULL représente les produits sans catégorie parent
                 ->orderBy('product.idProduct', 'ASC')
                 ->setMaxResults(10)
                 ->getQuery()
                 ->getResult();
         } else {
-            return $this->createQueryBuilder('product')
-                ->where('product.category = :category')
-                ->setParameter('category', $category)
-                ->orderBy('product.idProduct', 'ASC')
-                ->setMaxResults(10)
+            // Récupérer les produits correspondant aux filtres et sous-filtres sélectionnés
+            $qb = $this->createQueryBuilder('product')
+                ->where('product.category IN (:categories)')
+                ->setParameter('categories', $categories);
+
+            return $qb->orderBy('product.idProduct', 'ASC')
                 ->getQuery()
                 ->getResult();
         }
     }
 
 
-    /**
-    * @return Product[] Returns an array of Product objects
-    */
-    public function getProducts() // On fait remonter toutes les catégories (parents + enfants)
-    {
-        $category = 42;
-        $products = $this->findByCategory($category);
+    // /**
+    // * @return Product[] Returns an array of Product objects
+    // */
+    // public function getProducts() // On fait remonter toutes les catégories (parents + enfants)
+    // {
+    //     $products = $this->findByCategory();
 
-        $results =[];
+    //     $results =[];
 
-        foreach ($products as $product)
-        {
-            $results[$product->getIdProduct()] = [
-                                                    "idProduct" => $product->getIdProduct(),
-                                                    "name" => $product->getName()
+    //     foreach ($products as $product)
+    //     {
+    //         $results[$product->getIdProduct()] = [
+    //                                                 "idProduct" => $product->getIdProduct(),
+    //                                                 "name" => $product->getName(),
+    //                                                 "image" => $product->getPicture(),
+    //                                                 "price" => $product->getPrice(),
+    //                                                 "category" => $this->findByCategory($product->getCategory())
                                                     
-            ];     
-        }
-        return $results;
-    }
+    //         ];     
+    //     }
+    //     return $results;
+    // }
 
 
 

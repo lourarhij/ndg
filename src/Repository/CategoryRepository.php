@@ -74,7 +74,7 @@ class CategoryRepository extends ServiceEntityRepository
     */
     public function getCategories() // on fait remonter toutes les catégories (parents + enfants)
     {
-        //$categories = $entityManager->getRepository(Category::class)->findByIdParent(); // on récupère les catégories enfants du parent
+        
         $categories= $this->findByIdParent();
 
         $results =[];
@@ -90,6 +90,7 @@ class CategoryRepository extends ServiceEntityRepository
         }
         return $results;
     }
+}
 
 
 
@@ -123,7 +124,6 @@ class CategoryRepository extends ServiceEntityRepository
 //             ->getResult()
 //         ;
 //     }
-}
 
 
 

@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Attribute\Template;
 use App\Entity\Product;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class ProduitController extends AbstractController
@@ -19,23 +20,32 @@ class ProduitController extends AbstractController
         $products = $entityManager->getRepository(Product::class)->findAll();
         return $this->render('shop.html.twig', [
             'controller_name' => 'ProduitController',
+            'products' => $products,
         ]);
     }
 
     #[Route('/shop', name:'shop', methods : ['GET'])]
     #[Template("shop.html.twig")]
-    public function show(EntityManagerInterface $entityManager)
+    public function show(Request $request, EntityManagerInterface $entityManager)
     {
         //On récupère les catégories enfants du parent
         $filters = $entityManager->getRepository(Category::class)->getCategories();
 
+        // On récupère les filtres et sous-filtres sélectionnés à partir de la requête GET
+        $selectedFilters = $request->get('filters', []);
+
+        // Pour s'assurer que $selectedFilters est toujours un tableau
+        if (!is_array($selectedFilters)) {
+            $selectedFilters = [$selectedFilters];
+        }
+
         //On récupère les produits
-        $products = $entityManager->getRepository(Product::class)->getProducts();
+        $products = $entityManager->getRepository(Product::class)->findByCategory($selectedFilters);
         
         return ['filters' => $filters,
                 'products' => $products] ;
     }
-
+}
 
     
         // #[Route('/produit', name: 'app_produit')]
@@ -97,4 +107,4 @@ class ProduitController extends AbstractController
     //     // in the template, print things with {{ product.name }}
     //     // return $this->render('product/show.html.twig', ['product' => $product]);
     // }
-}
+
